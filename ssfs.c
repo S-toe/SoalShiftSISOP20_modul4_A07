@@ -86,22 +86,22 @@ void encrypt(char kal[1000], char enc[1000])
 }
 
 void info_command(char *command){
-	FILE * logFile = fopen(log_path, "a");
+	FILE * LOG = fopen(log_path, "a");
 	time_t now;
 	time ( &now );
 	struct tm * timeinfo = localtime (&now);
-	fprintf(logFile, "INFO::%d%d%d-%d:%d:%d::%s\n", timeinfo->tm_year+1900, timeinfo->tm_mon, timeinfo->tm_mday, timeinfo->tm_hour, timeinfo->tm_min, timeinfo->tm_sec, command);
-	fclose(logFile);
+	fprintf(LOG, "INFO::%d%d%d-%d:%d:%d::%s\n", timeinfo->tm_year+1900, timeinfo->tm_mon, timeinfo->tm_mday, timeinfo->tm_hour, timeinfo->tm_min, timeinfo->tm_sec, command);
+	fclose(LOG);
     return;
 }
 
 void warn_command(char *command){
-	FILE * logFile = fopen(log_path, "a");
+	FILE * LOG = fopen(log_path, "a");
 	time_t now;
 	time ( &now );
 	struct tm * timeinfo = localtime (&now);
-	fprintf(logFile, "WARNING::%d%d%d-%d:%d:%d::%s\n", timeinfo->tm_year+1900, timeinfo->tm_mon, timeinfo->tm_mday, timeinfo->tm_hour, timeinfo->tm_min, timeinfo->tm_sec, command);
-	fclose(logFile);
+	fprintf(LOG, "WARNING::%d%d%d-%d:%d:%d::%s\n", timeinfo->tm_year+1900, timeinfo->tm_mon, timeinfo->tm_mday, timeinfo->tm_hour, timeinfo->tm_min, timeinfo->tm_sec, command);
+	fclose(LOG);
     return;
 }
 
@@ -758,7 +758,7 @@ static int xmp_removexattr(const char *path, const char *name)
 
 static struct fuse_operations xmp_oper = {
 	.getattr	= xmp_getattr,
-	// .access		= xmp_access,
+	.access		= xmp_access,
 	.readlink	= xmp_readlink,
 	.readdir	= xmp_readdir,
 	.mknod		= xmp_mknod,
