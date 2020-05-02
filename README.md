@@ -231,6 +231,9 @@ static int xmp_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 }
 
 ```
+screen shoot:
+![Screenshot from 2020-05-02 19-07-06](https://user-images.githubusercontent.com/58405725/80863719-5f54aa80-8ca8-11ea-8e50-2ebbaf3470f6.png)
+![Screenshot from 2020-05-02 19-07-13](https://user-images.githubusercontent.com/58405725/80863721-6085d780-8ca8-11ea-8a9f-c37df8275000.png)
 **4. Log system:**
     
 1.  Sebuah berkas nantinya akan terbentuk bernama "fs.log" di direktori *home* pengguna (/home/[user]/fs.log) yang berguna menyimpan daftar perintah system call yang telah dijalankan.
@@ -285,3 +288,5 @@ void warn_command(char *command){
 ```
 
 Fungsi itu dapat dipanggil pada fungsi-fungsi implementasi FUSE untuk mencatat command yang digunakan kedalam file log.
+screen shoot:
+![Screenshot from 2020-05-02 19-08-39](https://user-images.githubusercontent.com/58405725/80863724-624f9b00-8ca8-11ea-918a-6680ef9e5336.png)
